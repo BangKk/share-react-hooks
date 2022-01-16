@@ -1,19 +1,14 @@
-import Profile from './ProfileClassComponent';
-import LocalContext from './context/local';
-import ThemeContext from './context/theme';
+import React from 'react';
+import Example1 from './Example1';
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <ThemeContext.Provider value={'normal'}>
-        <LocalContext.Provider value={'normal'}>
-          <Profile />
-        </LocalContext.Provider>
-      </ThemeContext.Provider>
+      <Example1 />
     </div>
   );
 }
 
-export default App
+export default App;

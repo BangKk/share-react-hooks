@@ -1,9 +1,0 @@
-.row .label {
-  display: flex;
-  font-size: 20px;
-}
-
-.row .label::before,
-.row .label::after {
-  content: '————————';
-}

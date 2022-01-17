@@ -1,3 +1,12 @@
+.example1 {
+  background-color: #1a2222;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 section {
   width: 360px;
   padding: 30px;

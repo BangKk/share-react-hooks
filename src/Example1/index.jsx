@@ -7,9 +7,11 @@ import './style.css';
 
 function Example1() {
   return (
-    <ThemeContext.Provider value={'theme-golden'}>
-      <Card />
-    </ThemeContext.Provider>
+    <div className="example1">
+      <ThemeContext.Provider value={'theme-golden'}>
+        <Card />
+      </ThemeContext.Provider>
+    </div>
   );
 }
 

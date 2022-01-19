@@ -35,17 +35,21 @@ h1 {
   font-size: 100px;
 }
 
-.home {
+.container {
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #1a2222;
+}
+
+.home {
+  display: flex;
   color: #f7f7f7;
 }
 
-.home .right img {
+.container .right img {
   height: 40vmin;
   font-size: calc(10px + 2vmin);
   animation: spin infinite 20s linear;
@@ -61,7 +65,7 @@ h1 {
   }
 }
 
-.home .points {
+.container .points {
   display: inline-block;
   margin-top: 50px;
   font-size: 30px;

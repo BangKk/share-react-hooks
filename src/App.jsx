@@ -2,6 +2,7 @@ import React from 'react';
 import {Routes, Route, Link} from 'react-router-dom';
 import logo from './logo.svg';
 import Example1 from './Example1';
+import Example2 from './Example2';
 
 import './App.css';
 
@@ -28,10 +29,11 @@ function Home() {
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="example1" element={<Example1 />} />
+        <Route path="example2" element={<Example2 />} />
       </Routes>
     </div>
   );

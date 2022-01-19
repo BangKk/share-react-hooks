@@ -36,7 +36,7 @@ const useDocumentTitle = (title) => {
 
 function Card() {
   const theme = useContext(ThemeContext);
-  const object = useInput(' ');
+  const object = useInput('');
   const description = useInput('');
   const width = useWindowWidth();
   useDocumentTitle(`${object.value} ${description.value}`);

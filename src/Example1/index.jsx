@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from './Component/CardClassComponent';
-// import Card from './Component/CardFuncComponent';
+// import Card from './Component/CardClassComponent';
+import Card from './Component/CardFuncComponent';
 import ThemeContext from './context/theme';
 
 import './style.css';

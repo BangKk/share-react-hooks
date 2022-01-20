@@ -1,82 +1,97 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
+import Todo from './Component/Todo';
+import TodoForm from './Component/TodoForm';
+
 import './style.css';
 
-function Todo({todo, index, completeTodo, removeTodo}) {
-  return (
-    <div
-      className="todo"
-      style={{textDecoration: todo.isCompleted ? 'line-through' : ''}}
-    >
-      {todo.text}
-
-      <div>
-        <button onClick={() => completeTodo(index)}>done</button>
-        <button onClick={() => removeTodo(index)}>x</button>
-      </div>
-    </div>
-  );
-}
-
-function TodoForm({addTodo}) {
-  const [value, setValue] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!value) return;
-    addTodo(value);
-    setValue('');
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-    </form>
-  );
-}
+const initialTodos = [
+  {
+    text: 'Learn about React',
+    isCompleted: false,
+  },
+  {
+    text: 'Meet friend for lunch',
+    isCompleted: false,
+  },
+  {
+    text: 'Build really cool todo app',
+    isCompleted: false,
+  },
+];
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      text: 'Learn about React',
-      isCompleted: false,
-    },
-    {
-      text: 'Meet friend for lunch',
-      isCompleted: false,
-    },
-    {
-      text: 'Build really cool todo app',
-      isCompleted: false,
-    },
-  ]);
+  const [value, setValue] = useState('');
+  const [todos, setTodos] = useState(initialTodos);
+  const [invalidTodos, setInvalidTodos] = useState([]);
+  const [invalidTodos, setInvalidTodos] = useState([]);
+  const [invalidTodos, setInvalidTodos] = useState([]);
+  const [invalidTodos, setInvalidTodos] = useState([]);
+  const [invalidTodos, setInvalidTodos] = useState([]);
+  const [invalidTodos, setInvalidTodos] = useState([]);
 
-  const addTodo = (text) => {
-    const newTodos = [...todos, {text}];
-    setTodos(newTodos);
-  };
+  const addTodo = useCallback(
+    (text) => {
+      const newTodos = [...todos, {text, isCompleted: false}];
+      setTodos(newTodos);
+      setValue('');
+    },
+    [todos]
+  );
 
-  const completeTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].isCompleted = true;
-    setTodos(newTodos);
-  };
+  const completeTodo = useCallback(
+    (index) => {
+      const todo = todos[index];
+      const newTodos = [...todos];
+      const newTodo = {...todo, isCompleted: true};
+      newTodos.splice(index, 1, newTodo);
+      setTodos(newTodos);
+    },
+    [todos, a, b, c]
+  );
 
-  const removeTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
-  };
+  const completeTodo = useCallback(
+    (index) => {
+      const todo = todos[index];
+      const newTodos = [...todos];
+      const newTodo = {...todo, isCompleted: true};
+      newTodos.splice(index, 1, newTodo);
+      setTodos(newTodos);
+    },
+    [todos]
+  );
+
+  const completeTodo = useCallback(
+    (index) => {
+      const todo = todos[index];
+      const newTodos = [...todos];
+      const newTodo = {...todo, isCompleted: true};
+      newTodos.splice(index, 1, newTodo);
+      setTodos(newTodos);
+    },
+    [todos]
+  );
+
+  const removeTodo = useCallback(
+    (index) => {
+      const newTodos = [...todos];
+      const [todo] = newTodos.splice(index, 1);
+      setTodos(newTodos);
+      setInvalidTodos(invalidTodos.concat(todo));
+    },
+    [todos]
+  );
+
+  const onFormChange = useCallback((val) => {
+    setValue(val);
+  }, []);
 
   return (
     <div className="todo-list-container">
-      <TodoForm addTodo={addTodo} />
-      <div className="todo-list">
+      <TodoForm value={value} onChange={onFormChange} onSubmit={addTodo} />
+      <div className="list todos">
         {todos.map((todo, index) => (
           <Todo
+            isValid
             key={index}
             index={index}
             todo={todo}
@@ -85,6 +100,20 @@ function App() {
           />
         ))}
       </div>
+      {invalidTodos.length > 0 ? (
+        <div className="list invalid-todos">
+          invalid todos
+          {invalidTodos.map((todo, index) => (
+            <Todo
+              key={index}
+              index={index}
+              todo={todo}
+              completeTodo={completeTodo}
+              removeTodo={removeTodo}
+            />
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }

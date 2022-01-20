@@ -3,6 +3,7 @@ import {Routes, Route, Link} from 'react-router-dom';
 import logo from './logo.svg';
 import Example1 from './Example1';
 import Example2 from './Example2';
+// import Example2 from './Example2/reducer';
 
 import './App.css';
 

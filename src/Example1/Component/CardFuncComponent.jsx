@@ -4,12 +4,14 @@ import ThemeContext from '../context/theme';
 
 const useInput = (initialValue) => {
   const [value, setValue] = useState(initialValue);
-
   const onChange = (e) => {
     setValue(e.target.value);
   };
 
-  return {value, onChange};
+  return {
+    value,
+    onChange,
+  };
 };
 
 const useWindowWidth = () => {
@@ -35,11 +37,11 @@ const useDocumentTitle = (title) => {
 };
 
 function Card() {
-  const theme = useContext(ThemeContext);
   const object = useInput('');
   const description = useInput('');
+  const theme = useContext(ThemeContext);
   const width = useWindowWidth();
-  useDocumentTitle(`${object.value} ${description.value}`);
+  useDocumentTitle(`${object} ${description}`);
 
   return (
     <section className={theme}>

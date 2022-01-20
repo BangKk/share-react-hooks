@@ -41,7 +41,7 @@ function Card() {
   const description = useInput('');
   const theme = useContext(ThemeContext);
   const width = useWindowWidth();
-  useDocumentTitle(`${object} ${description}`);
+  useDocumentTitle(`${object.value} ${description.value}`);
 
   return (
     <section className={theme}>

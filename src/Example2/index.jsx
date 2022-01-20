@@ -23,39 +23,12 @@ function App() {
   const [value, setValue] = useState('');
   const [todos, setTodos] = useState(initialTodos);
   const [invalidTodos, setInvalidTodos] = useState([]);
-  const [invalidTodos, setInvalidTodos] = useState([]);
-  const [invalidTodos, setInvalidTodos] = useState([]);
-  const [invalidTodos, setInvalidTodos] = useState([]);
-  const [invalidTodos, setInvalidTodos] = useState([]);
-  const [invalidTodos, setInvalidTodos] = useState([]);
 
   const addTodo = useCallback(
     (text) => {
       const newTodos = [...todos, {text, isCompleted: false}];
       setTodos(newTodos);
       setValue('');
-    },
-    [todos]
-  );
-
-  const completeTodo = useCallback(
-    (index) => {
-      const todo = todos[index];
-      const newTodos = [...todos];
-      const newTodo = {...todo, isCompleted: true};
-      newTodos.splice(index, 1, newTodo);
-      setTodos(newTodos);
-    },
-    [todos, a, b, c]
-  );
-
-  const completeTodo = useCallback(
-    (index) => {
-      const todo = todos[index];
-      const newTodos = [...todos];
-      const newTodo = {...todo, isCompleted: true};
-      newTodos.splice(index, 1, newTodo);
-      setTodos(newTodos);
     },
     [todos]
   );
